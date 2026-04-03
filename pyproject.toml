@@ -1,0 +1,31 @@
+[project]
+name = "liquid-democracy-sim"
+version = "0.1.0"
+description = "Liquid democracy simulation engine comparing FPTP, RCV, TRS, and delegation-based voting"
+requires-python = ">=3.11"
+dependencies = [
+    "mesa>=3.0,<4.0",
+    "networkx>=3.2",
+    "pandas>=2.1",
+    "numpy>=1.26",
+    "streamlit>=1.30",
+    "plotly>=5.18",
+    "scipy>=1.12",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+]
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["agents*", "engine*", "tally*", "scenarios*", "dashboard*", "data*", "scripts*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"
